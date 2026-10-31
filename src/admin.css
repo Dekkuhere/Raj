@@ -1,0 +1,23 @@
+/* ---------- admin panel (#admin) ---------- */
+.admin{max-width:720px;margin:0 auto;padding:max(18px,env(safe-area-inset-top,0px)) 16px 60px}
+.ad-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.ad-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.ad-list{display:grid;gap:14px}
+.ad-card{border:1px solid var(--edge);border-radius:14px;padding:16px;background:var(--bg)}
+.ad-card h2{margin-bottom:12px}
+.ad-card code{background:var(--soft);padding:1px 6px;border-radius:5px;color:var(--head)}
+.ad-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:var(--head)}
+.ad-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ad-grid .wide{grid-column:1/-1}
+.admin label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.admin input,.admin textarea,.admin select{width:100%;padding:9px 11px;border:1px solid var(--edge);border-radius:8px;background:var(--soft);color:var(--head);font:inherit;font-size:15px}
+.admin input:focus,.admin textarea:focus,.admin select:focus{outline:2px solid var(--text);outline-offset:1px}
+.ad-actions{display:flex;align-items:center;gap:10px;margin-top:14px}
+.ad-actions em,.ad-login em{font-size:13px;color:var(--muted);font-style:normal}
+.ad-btn{padding:8px 16px;border:1px solid var(--head);border-radius:10px;background:var(--head);color:var(--bg);font:inherit;font-weight:600;cursor:pointer}
+.ad-btn.ghost{background:none;color:var(--text);border-color:var(--edge)}
+.ad-btn.danger{background:none;color:#ff6b5e;border-color:#ff6b5e}
+.ad-btn.big{padding:12px;border-style:dashed;background:none;color:var(--head)}
+.ad-btn:disabled{opacity:.35;cursor:default}
+.ad-login{max-width:380px;margin:40px auto;display:grid;gap:12px}
+@media (max-width:560px){.ad-grid{grid-template-columns:1fr}}
