@@ -8,10 +8,10 @@ export const DEFAULT_SETTINGS = {
 }
 
 export const DEFAULT_LINKS = [
-  { id: 'd1', label: 'Twitter', href: '#', icon: 'twitter', sort_order: 1 },
-  { id: 'd2', label: 'LinkedIn', href: '#', icon: 'linkedin', sort_order: 2 },
+  { id: 'd1', label: 'Twitter', href: 'https://x.com/dekkuhere', icon: 'twitter', sort_order: 1 },
+  { id: 'd2', label: 'LinkedIn', href: 'https://www.linkedin.com/in/raj-sharma-31b769344?utm_source=share_via&utm_content=profile&utm_medium=member_android', icon: 'linkedin', sort_order: 2 },
   { id: 'd3', label: 'GitHub', href: 'https://github.com/Dekkuhere', icon: 'github', sort_order: 3 },
-  { id: 'd4', label: 'Instagram', href: '#', icon: 'instagram', sort_order: 4 },
+  { id: 'd4', label: 'Instagram', href: 'https://www.instagram.com/dekkuhere?rpxt=MW83ZGRoZzQ3MjRkbQ==', icon: 'instagram', sort_order: 4 },
   { id: 'd5', label: 'Email', href: 'mailto:notraj2006@gmail.com', icon: 'email', sort_order: 5 },
 ]
 
