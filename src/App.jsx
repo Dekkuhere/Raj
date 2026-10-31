@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useRoute } from './hooks/useRoute'
-import { useSiteData } from './hooks/useSiteData'
+import { DEFAULT_SETTINGS, DEFAULT_LINKS, DEFAULT_PROJECTS } from './data/defaults'
 import { registerVisit } from './lib/api'
 import Intro from './components/Intro'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import AdminPage from './components/admin/AdminPage'
 import Home from './pages/Home'
 import Work from './pages/Work'
 import Personal from './pages/Personal'
@@ -16,11 +15,14 @@ const reduceMotion = typeof matchMedia !== 'undefined' && matchMedia('(prefers-r
 
 export default function App() {
   const { route, open, navigate } = useRoute()
-  const data = useSiteData()
-  const { settings, links, projects } = data
+  const settings = DEFAULT_SETTINGS
+  const links = DEFAULT_LINKS
+  const projects = DEFAULT_PROJECTS
   const [phase, setPhase] = useState(reduceMotion ? 'done' : 'intro') // intro → out → done
 
-  useEffect(() => { registerVisit() }, [])
+  useEffect(() => {
+    registerVisit().catch(error => console.error('Could not register portfolio visit:', error))
+  }, [])
   useEffect(() => {
     if (phase === 'done') return
     const a = setTimeout(() => setPhase('out'), 900)
@@ -36,7 +38,6 @@ export default function App() {
     if (!(route === 'personal' && open === 'interests')) scrollTo({ top: 0, behavior: 'instant' })
   }, [route, open, settings.name])
 
-  if (route === 'admin') return <AdminPage data={data} navigate={navigate} />
   if (route === 'contribute') return <Contribute navigate={navigate} />
 
   const page = {

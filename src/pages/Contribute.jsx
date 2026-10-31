@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react'
 import A from '../components/Link'
-import { castVote, getStats, recordWin, statsLive } from '../lib/api'
+import { castVote, getCachedStats, getStats, recordWin, statsLive } from '../lib/api'
 
 const N = 8, TOTAL = N * N, BUGS = 10, SAFE = TOTAL - BUGS
 const FLAG = <svg className="bs-flag" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" /><path d="M6 4h12l-3 4.5L18 13H6z" fill="#ff5a4e" /></svg>
@@ -20,7 +20,7 @@ const emptyBoard = () => Array.from({ length: TOTAL }, () => ({ bug: false, open
 export default function Contribute({ navigate }) {
   const g = useRef({ board: emptyBoard(), phase: 'idle', opened: 0, flags: 0, boom: -1 })
   const [, redraw] = useReducer(x => x + 1, 0)
-  const [stats, setStats] = useState({ visitors: 0, contributions: 0, likes: 0, dislikes: 0, myVote: 0, won: false })
+  const [stats, setStats] = useState(() => getCachedStats() || { visitors: 0, contributions: 0, likes: 0, dislikes: 0, myVote: 0, won: false })
   const [ok, setOk] = useState(true)
   const press = useRef(null)
 
@@ -162,7 +162,7 @@ export default function Contribute({ navigate }) {
             )}
           </div>
           {(!statsLive || !ok) && (
-            <p className="bs-note">{!statsLive ? 'Preview mode: these numbers are saved on this device only. Connect Supabase to count everyone.' : 'Couldn’t reach the server just now.'}</p>
+            <p className="bs-note">{!statsLive ? 'Preview mode: stats are saved on this device only. Configure Supabase to share counts.' : 'Couldn’t reach the stats service just now.'}</p>
           )}
         </div>
       </div>

@@ -1,24 +1,16 @@
-# Raj Sharma – Portfolio (React + Vite + Supabase)
+# Raj Sharma – Portfolio
 
 ## Setup
 1. `npm install`
-2. Create a project at supabase.com → **SQL Editor** → paste & run `supabase/schema.sql`
-   (first change `notraj2006@gmail.com` in `is_admin()` if you'll log in with another email).
-3. Supabase → **Authentication → Users → Add user** (your email + a password).
-   Then Authentication → Providers → Email → turn **off** "Allow new users to sign up".
-4. `cp .env.example .env` and fill in **Project URL** + **anon key** (Settings → API).
+2. Create a Supabase project.
+3. In the Supabase SQL Editor, run `supabase/schema.sql`.
+4. Copy `.env.example` to `.env.local` and add your Supabase Project URL and anon/publishable key.
 5. `npm run dev`
 
-## Editing your site
-Open `/#admin` and log in:
-- **Connect links** – change URLs, labels, icons, add/remove, reorder
-- **Projects** – add a project (shows on Home + Work), edit, reorder, delete
-- **Resume & profile** – upload a new PDF (or paste a link), preview image, name, tagline
-
-Without a `.env` the site still works using the defaults in `src/data/defaults.js`.
+Portfolio content is stored in `src/data/defaults.js`. Supabase is only used for shared visitor, vote, and Bug Sweeper win counts; it does not provide an admin editor or require visitor accounts. Visitors are counted by a browser ID, so counts are approximate and can be reset or manipulated. Without Supabase credentials, Bug Sweeper stats fall back to the current visitor's browser.
 
 ## Structure
-src/pages (Home, Work, Personal, Resume, Contribute/Bug Sweeper) · src/components (+ admin/) ·
-src/lib/api.js (all Supabase calls) · supabase/schema.sql (tables, RLS, stats functions, storage)
+src/pages (Home, Work, Personal, Resume, Contribute/Bug Sweeper) · src/components ·
+src/data/defaults.js (portfolio content) · src/lib/api.js (Bug Sweeper stats)
 
-Deploy: Vercel/Netlify (`npm run build`, output `dist`, add the two env vars).
+Deploy: Vercel/Netlify (`npm run build`, output `dist`, add the two Supabase environment variables).

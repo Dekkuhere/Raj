@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
-export const ROUTES = ['home', 'work', 'personal', 'resume', 'contribute', 'admin']
+export const ROUTES = ['home', 'work', 'personal', 'resume', 'contribute']
 const read = () => { const id = (location.hash || '#home').slice(1); return ROUTES.includes(id) ? id : 'home' }
 
 export function useRoute() {

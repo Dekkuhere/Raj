@@ -1,4 +1,4 @@
-// Used when Supabase isn't configured (or is unreachable) so the site never shows empty.
+// Static content used throughout the portfolio.
 export const DEFAULT_SETTINGS = {
   name: 'Raj Sharma',
   tagline: '3rd year aspiring MERN developer',

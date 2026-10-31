@@ -3,6 +3,4 @@ import { createClient } from '@supabase/supabase-js'
 const url = import.meta.env.VITE_SUPABASE_URL
 const key = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-// null when env vars are missing → the site falls back to src/data/defaults.js
 export const supabase = url && key ? createClient(url, key) : null
-export const BUCKET = 'portfolio'

@@ -1,4 +1,4 @@
-// icon key → svg markup. Add more keys here and they appear in the admin dropdown.
+// Maps social-link icon keys to their SVG markup.
 export const SOCIAL_ICONS = {
   twitter: '<svg class="f" viewBox="0 0 24 24"><path d="M18.2 2H21l-6.5 7.4L22 22h-6l-4.7-6.1L5.9 22H3l7-8L2.5 2h6.1l4.2 5.6L18.2 2zm-1 18h1.6L7.9 3.7H6.2L17.2 20z"/></svg>',
   linkedin: '<svg viewBox="0 0 24 24" style="stroke-width:1.4"><rect x="1.7" y="1.7" width="20.6" height="20.6" rx="3.4"/><circle cx="6.1" cy="6" r="1.7"/><rect x="4.5" y="9.5" width="3.2" height="9.5" rx=".6"/><path d="M10.3 19V9.5h3v1c.6-.8 1.6-1.2 2.7-1.2 2.3 0 3.7 1.4 3.7 3.9V19h-3.2v-5.4c0-1-.5-1.6-1.4-1.6s-1.6.6-1.6 1.6V19z"/></svg>',
