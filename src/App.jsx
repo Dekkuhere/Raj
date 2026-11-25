@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { useRoute } from './hooks/useRoute'
 import { DEFAULT_SETTINGS, DEFAULT_LINKS, DEFAULT_PROJECTS } from './data/defaults'
 import { registerVisit } from './lib/api'
@@ -60,6 +61,7 @@ export default function App() {
         </div>
         <Footer name={settings.name} links={links} />
       </div>
+      <Analytics />
     </>
   )
 }
